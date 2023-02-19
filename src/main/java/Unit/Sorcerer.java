@@ -2,15 +2,17 @@
 
 package Unit;
 
-public class Sorcerer extends Character {
-    String lie_down;
-    String staff;
-    String magic_crystal;
-    String attack;
-    String view_crystal;
+public abstract class Sorcerer extends Magicians {
+    String lie_down, staff, magic_crystal, attack, view_crystal;
 
-    public Sorcerer(String name, Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
-        super(name, current_health, max_health, walk, run, sleep, eat, move);
+    public Sorcerer(Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
+        super(current_health, max_health, walk, run, sleep, eat, move);
+        super.name = name;
+    }
+
+    public Sorcerer(String name) {
+        super(50, 100, "walk", "run", "sleep", "eat", "move");
+        super.name = name;
     }
 
     public String getLie_down() {
@@ -27,5 +29,10 @@ public class Sorcerer extends Character {
     }
     public String getView_crystal() {
         return view_crystal;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я Колдун!";
     }
 }

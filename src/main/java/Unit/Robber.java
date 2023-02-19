@@ -2,17 +2,17 @@
 
 package Unit;
 
-public class Robber extends Character {
-    String jump;
-    String crawl;
-    String knife;
-    String axe;
-    String cut;
-    String chop;
-    String hide;
-    String steal;
-    public Robber(String name, Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
-        super(name, current_health, max_health, walk, run, sleep, eat, move);
+public abstract class Robber extends Simpletons {
+    String jump, crawl, knife, cut, chop, hide, steal;
+
+    public Robber(Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
+        super(current_health, max_health, walk, run, sleep, eat, move);
+        super.name = name;
+    }
+
+    public Robber(String name) {
+        super(50, 100, "walk", "run", "sleep", "eat", "move");
+        super.name = name;
     }
 
     public String getJump() {
@@ -23,9 +23,6 @@ public class Robber extends Character {
     }
     public String getKnife() {
         return knife;
-    }
-    public String getAxe() {
-        return axe;
     }
     public String getCut() {
         return cut;
@@ -39,4 +36,10 @@ public class Robber extends Character {
     public String getSteal() {
         return steal;
     }
+
+    @Override
+    public String getInfo() {
+        return "Я Разбойник!";
+    }
 }
+

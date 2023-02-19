@@ -46,16 +46,25 @@
 // навык - читать заклинание, лечить.
 
 import Unit.*;
+import Unit.Character;
+import Unit.Person;
+
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Random;
+
 
 public class Main {
     public static void main(String[] args) {
-        Peasant peasant = new Peasant("Fedor", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Robber robber = new Robber("Gena", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Spearman spearman = new Spearman("Michal", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Sniper sniper = new Sniper("Ron", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Crossbowman crossbowman = new Crossbowman("Alex", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Sorcerer sorcerer = new Sorcerer("Gor", 50, 100, "walk", "run", "sleep", "eat", "move");
-        Monk monk = new Monk("Serg", 50, 100, "walk", "run", "sleep", "eat", "move");
+
+        ArrayList<Person> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+
+            Person personag = new Person();
+            list.add(personag);
+            System.out.println(personag.getPersona());
+        }
+
 
     }
 }

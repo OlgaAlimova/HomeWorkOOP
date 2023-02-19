@@ -2,18 +2,17 @@
 
 package Unit;
 
-public class Sniper extends Character {
-    String lie_down;
-    String crawl;
-    String rifle;
-    String cartridge_pack;
-    String disguise;
-    String hide;
-    String shoot;
-    String load;
+public abstract class Sniper extends Shooters {
+    String lie_down, crawl, rifle, cartridge_pack, disguise, hide, load;
 
-    public Sniper(String name, Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
-        super(name, current_health, max_health, walk, run, sleep, eat, move);
+    public Sniper(Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
+        super(current_health, max_health, walk, run, sleep, eat, move);
+        super.name = name;
+    }
+
+    public Sniper(String name) {
+        super(50, 100, "walk", "run", "sleep", "eat", "move");
+        super.name = name;
     }
 
     public String getLie_down() {
@@ -28,14 +27,19 @@ public class Sniper extends Character {
     public String getCartridge_pack() {
         return cartridge_pack;
     }
+    public String getDisguise() {
+        return disguise;
+    }
     public String getHide() {
         return hide;
     }
-    public String getShoot() {
-        return shoot;
-    }
     public String getLoad() {
         return load;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я Снайпер!";
     }
 
 }

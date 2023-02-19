@@ -2,15 +2,18 @@
 
 package Unit;
 
-public class Peasant extends Character {
+public abstract class Peasant extends Simpletons {
 
-    String shovel;
-    String pitchfork;
-    String carry;
-    String collect;
+    String shovel, pitchfork, carry, collect;
 
-    public Peasant(String name, Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
-        super(name, current_health, max_health, walk, run, sleep, eat, move);
+    public Peasant(Integer current_health, Integer max_health, String walk, String run, String sleep, String eat, String move) {
+        super(current_health, max_health, walk, run, sleep, eat, move);
+        super.name = name;
+    }
+
+    public Peasant(String name) {
+        super(50, 100, "walk", "run", "sleep", "eat", "move");
+        super.name = name;
     }
 
     public String getShovel() {
@@ -24,5 +27,10 @@ public class Peasant extends Character {
     }
     public String getCollect() {
         return collect;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я Крестьянин!";
     }
 }
